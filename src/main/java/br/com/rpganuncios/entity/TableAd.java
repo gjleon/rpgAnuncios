@@ -11,50 +11,53 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "anuncio_mesa")
+@Table(name = "table_ad")
 @AllArgsConstructor
 @Getter
 @Setter
-public class AnuncioMesa {
+public class TableAd {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @NotBlank(message = "O nome da campanha deve ser preenchido")
     @Size(max = 255)
-    private String nomeCampanha;
+    private String campaignName;
 
     @NotBlank(message = "O campo sistema deve ser preenchido")
-    private String nomeSistema;
+    private String systemName;
 
     @NotBlank(message = "O campo gênero deve ser preenchido")
-    private String generoMesa;
+    private String tableGenres;
 
     @NotBlank(message = "O campo de horário da mesa deve ser preenchido")
-    private String horaDiaMesa;
+    private String scheduledDateTime;
 
     @NotBlank(message = "O campo de sinopse deve ser preenchido")
-    private String sinopse;
+    private String synopsis;
 
     @NotNull(message = "O numero maximo de vagas deve ser informado")
-    private int vagasMaxima;
+    private int maxSlots;
 
     @NotNull(message = "O numero de vagas preenchidas deve ser informado")
-    private int vagaCompleta;
+    private int filledSlots;
 
 
-    private boolean mesaPaga;
+    private boolean isPaidTable;
 
-    private String regraMesa;
+    private String tableRules;
 
-    private String valorMesa;
+    private String tablePrice;
 
-    private String plataforma;
+    private String platform;
 
-    private String linkFormulario;
+    private String formLink;
 
     private String mediaUrl;
 
-    private String outros;
+    private String additionalInfo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserAccount userAccount;
 
 }
