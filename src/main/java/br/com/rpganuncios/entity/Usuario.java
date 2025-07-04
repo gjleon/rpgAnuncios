@@ -7,15 +7,18 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "usuarios")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Usuario {
@@ -43,8 +46,8 @@ public class Usuario {
     private String nickDiscord;
 
     @OneToMany
-    private List<AnuncioMesa> anuncioMesas;
+    private List<AnuncioMesa> anuncioMesas = new ArrayList<>();
 
     @OneToMany
-    private List<JogadorAnuncio> jogadorAnuncios;
+    private List<JogadorAnuncio> jogadorAnuncios = new ArrayList<>();
 }
