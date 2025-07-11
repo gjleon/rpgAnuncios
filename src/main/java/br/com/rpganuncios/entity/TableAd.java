@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
@@ -13,12 +14,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "table_ad")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class TableAd {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotBlank(message = "O nome da campanha deve ser preenchido")
     @Size(max = 255)

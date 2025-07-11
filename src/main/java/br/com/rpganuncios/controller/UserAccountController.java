@@ -32,12 +32,12 @@ public class UserAccountController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserAccountResponse> findUserById(@PathVariable UUID id){
+    public ResponseEntity<UserAccountResponse> findUserById(@PathVariable Long id){
         return ResponseEntity.ok().body(userAccountService.findById(id));
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<UserAccountResponse> updateUser(@RequestBody UserAccountRequest userAccountRequest, @PathVariable UUID id){
+    public ResponseEntity<UserAccountResponse> updateUser(@RequestBody UserAccountRequest userAccountRequest, @PathVariable Long id){
         UserAccountResponse userAccountResponse = userAccountService.updateUser(userAccountRequest, id);
         return ResponseEntity.ok().body(userAccountResponse);
     }

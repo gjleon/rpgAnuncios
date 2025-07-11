@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 @Repository
-public interface PlayerAdRepository extends JpaRepository<PlayerAd, UUID> {
+public interface PlayerAdRepository extends JpaRepository<PlayerAd, Long> {
 }

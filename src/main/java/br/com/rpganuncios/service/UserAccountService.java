@@ -32,11 +32,11 @@ public class UserAccountService {
     }
 
 
-    public UserAccountResponse findById(UUID id) {
+    public UserAccountResponse findById(Long id) {
         return userAccountMapper.toUserAccountResponse(userAccountRepository.findById(id).get());
     }
 
-    public UserAccountResponse updateUser(UserAccountRequest userAccountRequest, UUID id) {
+    public UserAccountResponse updateUser(UserAccountRequest userAccountRequest, Long id) {
         UserAccount user = userAccountRepository.findById(id).orElseThrow(() -> new  NoSuchElementException("O id: "+ id +" não existe"));
         user.setLogin(userAccountRequest.login());
         user.setNickDiscord(userAccountRequest.nickDiscord());

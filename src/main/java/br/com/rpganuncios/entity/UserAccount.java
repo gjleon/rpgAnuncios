@@ -23,8 +23,8 @@ import java.util.UUID;
 @Setter
 public class UserAccount {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotBlank(message = "login must be provided")
     @NotNull(message = "login cannot be null")
