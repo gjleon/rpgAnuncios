@@ -1,8 +1,6 @@
 package br.com.rpganuncios.dtos.request;
 
 
-import java.util.UUID;
-
 public record TableAdRequest(
         String campaignName,
         String systemName,

@@ -15,8 +15,7 @@ public interface TableAdMapper {
     @Mapping(target = "id", ignore = true)
     TableAd toTableAd(final TableAdRequest tableAdRequest, UserAccount userAccount);
 
-    @Mapping(target = "isPaidTable", ignore = true)
+    @Mapping(target = "isPaidTable", source = "paidTable")
     @Mapping(target = "userAccountId", source = "tableAd.userAccount.id")
-//    @Mapping(target = "TableAdId", source = "tableAd.id")
     TableAdResponse toTableAdResponse(final TableAd tableAd);
 }
